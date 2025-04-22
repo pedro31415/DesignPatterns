@@ -8,12 +8,15 @@ from abc import ABC, abstractmethod
 
 class ImpostoStrategy(ABC):
     @abstractmethod
-    def imposto(self):
+    def imposto(self, valor):
         pass
 
 class PedidoVenda():
-    def impostoVenda(self, valorImposto: ImpostoStrategy):
-        return  valorImposto.imposto()
+    def __init__(self, valor):
+        self.valor = valor
+
+    def calcularImposto(self, estrategia: ImpostoStrategy):
+        return  estrategia.imposto(self.valor)
 
 class ImpostoEUA(ImpostoStrategy):
     def imposto(self, valor):
@@ -28,6 +31,6 @@ class ImpostoCanada(ImpostoStrategy):
         return 0.05 * valor
 
 if __name__ == "__main__":
-    valor = PedidoVenda()
-    imposto = valor.impostoVenda(ImpostoBrasil())
+    valor = PedidoVenda(100)
+    imposto = valor.calcularImposto(ImpostoBrasil())
     print(imposto)

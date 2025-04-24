@@ -27,9 +27,12 @@ if __name__ == "__main__":
     porta1 = Porta("A")
     porta2 = Porta("B")
     porta3 = Porta("C")
+    porta4 = Porta("D")
 
     chave_unica = Chave()
+    chave2 = Chave()
 
     porta1.abrirPorta(chave_unica)
     porta2.abrirPorta(chave_unica)
     porta3.abrirPorta(chave_unica)
+    porta4.abrirPorta(chave2)

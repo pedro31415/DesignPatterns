@@ -16,16 +16,16 @@ class EventNotifier:
 
 class Subject(ABC):
     def __init__(self):
-        self.observer = EventNotifier()
+        self.notifier = EventNotifier() 
     
     def attach(self, observer):
-        self.observer.attach(observer)
+        self.notifier.attach(observer)
     
     def detach(self, observer):
-        self.observer.detach(observer)
+        self.notifier.detach(observer)
     
     def notify(self, data):
-        self.observer.notify(data)
+        self.notifier.notify(data)
     
 class Observer(ABC):
     @abstractmethod

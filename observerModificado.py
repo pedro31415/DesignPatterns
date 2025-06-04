@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class ListObserver:
+class EventNotifier:
     def __init__(self):
         self._observers = []
     
@@ -16,7 +16,7 @@ class ListObserver:
 
 class Subject(ABC):
     def __init__(self):
-        self.observer = ListObserver()
+        self.observer = EventNotifier()
     
     def attach(self, observer):
         self.observer.attach(observer)
